@@ -1,0 +1,27 @@
+<div class="list-group">
+  <button class="btn btn-primary mb-1" (click)="agregarMarcador()">
+    + Agregar
+  </button>
+  <div
+    class="btn-group mb-1"
+    role="group"
+    *ngFor="let marcador of marcadores; let i = index"
+  >
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="irMarcador(marcador)"
+      [ngStyle]="{
+        'background-color': marcador.color,
+        color: marcador.textColor
+      }"
+    >
+      Marker {{ i + 1 }}
+    </button>
+    <button type="button" class="btn btn-danger" (click)="borrar(i)">
+      <i class="fa fa-trash"></i>
+    </button>
+  </div>
+</div>
+
+<div #mapa class="mapa-container"></div>
